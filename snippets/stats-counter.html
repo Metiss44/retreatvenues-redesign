@@ -1,0 +1,130 @@
+<style>
+  .rv-stats-band {
+    background: #705463;
+    color: #fbf7f4;
+    padding: 34px 0;
+  }
+
+  .rv-stats-inner {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .rv-stat {
+    padding: 8px 0;
+  }
+
+  .rv-stat strong {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rv-stat span:last-child {
+    display: block;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 960px) {
+    .rv-stats-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .rv-stats-band {
+      padding: 28px 0;
+    }
+
+    .rv-stats-inner {
+      width: min(100% - 28px, 1180px);
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="rv-stats-band">
+  <div class="rv-stats-inner">
+    <div class="rv-stat">
+      <strong><span class="rv-count" data-start="0" data-end="300" data-suffix="+">0</span></strong>
+      <span>retreat venues already listed</span>
+    </div>
+    <div class="rv-stat">
+      <strong><span class="rv-count" data-start="0" data-end="50" data-suffix="+">0</span></strong>
+      <span>countries represented</span>
+    </div>
+    <div class="rv-stat">
+      <strong><span class="rv-count" data-start="0" data-end="30000" data-suffix="+">0</span></strong>
+      <span>Instagram audience</span>
+    </div>
+    <div class="rv-stat">
+      <strong><span class="rv-count" data-start="30" data-end="0" data-suffix="%">30</span></strong>
+      <span>commission on bookings</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const counters = document.querySelectorAll(".rv-count");
+
+    const formatNumber = (value) => {
+      const rounded = Math.round(value);
+      return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    };
+
+    const animateCounter = (counter) => {
+      if (counter.dataset.done === "true") return;
+      counter.dataset.done = "true";
+
+      const start = Number(counter.dataset.start || 0);
+      const end = Number(counter.dataset.end || 0);
+      const suffix = counter.dataset.suffix || "";
+      const duration = 1300;
+      const startTime = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = start + (end - start) * eased;
+
+        counter.textContent = formatNumber(current) + suffix;
+
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      counters.forEach((counter) => {
+        counter.textContent = formatNumber(counter.dataset.end || 0) + (counter.dataset.suffix || "");
+      });
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      counters.forEach(animateCounter);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+
+    counters.forEach((counter) => observer.observe(counter));
+  })();
+</script>
