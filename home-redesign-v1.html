@@ -398,6 +398,223 @@
         font-weight: 550;
       }
 
+      .center-head {
+        max-width: 760px;
+        margin: 0 auto 36px;
+        text-align: center;
+      }
+
+      .center-head h2 {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .center-head .section-intro {
+        max-width: 620px;
+        margin: 16px auto 0;
+      }
+
+      .section-action {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .search-destination-layout {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .destination-panel {
+        padding: 38px;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 42px rgba(47, 41, 44, 0.07);
+      }
+
+      .destination-panel h2 {
+        max-width: 520px;
+      }
+
+      .destination-panel p {
+        max-width: 520px;
+        margin-top: 16px;
+        color: var(--rv-muted);
+        font-weight: 550;
+      }
+
+      .country-list {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .country-link {
+        min-height: 62px;
+        padding: 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border: 1px solid rgba(112, 84, 99, 0.13);
+        border-radius: 8px;
+        background: var(--rv-cream);
+        color: var(--rv-violet);
+        font-weight: 850;
+      }
+
+      .country-link span {
+        color: var(--rv-muted);
+        font-size: 13px;
+        font-weight: 750;
+      }
+
+      .country-link:hover {
+        border-color: rgba(112, 84, 99, 0.32);
+        background: #fff;
+      }
+
+      .map-panel.light {
+        min-height: 500px;
+        border: 1px solid rgba(112, 84, 99, 0.12);
+        background:
+          radial-gradient(circle at 22% 34%, rgba(112, 84, 99, 0.22) 0 2px, transparent 3px),
+          radial-gradient(circle at 58% 42%, rgba(112, 84, 99, 0.22) 0 2px, transparent 3px),
+          radial-gradient(circle at 72% 68%, rgba(112, 84, 99, 0.18) 0 2px, transparent 3px),
+          linear-gradient(135deg, rgba(123, 138, 115, 0.13), rgba(237, 230, 226, 0.72)),
+          #f7f0ec;
+      }
+
+      .map-panel.light::before {
+        border-color: rgba(112, 84, 99, 0.16);
+      }
+
+      .map-panel.light .map-line {
+        background: rgba(112, 84, 99, 0.14);
+      }
+
+      .map-label {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 24px;
+        z-index: 2;
+        padding: 20px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        color: var(--rv-ink);
+        box-shadow: 0 14px 36px rgba(47, 41, 44, 0.12);
+      }
+
+      .map-label strong {
+        display: block;
+        color: var(--rv-violet);
+        font-size: 20px;
+        font-weight: 850;
+      }
+
+      .map-label span {
+        display: block;
+        margin-top: 4px;
+        color: var(--rv-muted);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .photo-band {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--rv-violet);
+        color: #fff;
+        box-shadow: var(--rv-shadow);
+      }
+
+      .photo-band-copy {
+        padding: 52px;
+      }
+
+      .photo-band-copy h2 {
+        color: #fff;
+      }
+
+      .photo-band-copy p {
+        max-width: 560px;
+        margin-top: 18px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 17px;
+        font-weight: 550;
+      }
+
+      .photo-band .guide-list li {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .photo-band-media {
+        min-height: 420px;
+      }
+
+      .photo-band-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .visual-step .step-number {
+        width: 58px;
+        height: 58px;
+      }
+
+      .step-icon {
+        width: 34px;
+        height: 34px;
+        color: var(--rv-violet);
+      }
+
+      .step-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: currentColor;
+        stroke-width: 2.2;
+        fill: none;
+      }
+
+      .compact-types {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .compact-type {
+        min-height: 112px;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid rgba(112, 84, 99, 0.12);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 12px 32px rgba(47, 41, 44, 0.05);
+      }
+
+      .compact-type strong {
+        color: var(--rv-ink);
+        font-size: 17px;
+        line-height: 1.12;
+        font-weight: 850;
+      }
+
+      .compact-type span {
+        color: var(--rv-violet);
+        font-size: 13px;
+        font-weight: 850;
+      }
+
       .benefit-grid {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -943,7 +1160,9 @@
         .venue-row,
         .steps-grid,
         .guide-layout,
-        .two-column-copy {
+        .two-column-copy,
+        .search-destination-layout,
+        .photo-band {
           grid-template-columns: 1fr;
         }
 
@@ -963,6 +1182,14 @@
         .map-split,
         .owner-cta {
           grid-template-columns: 1fr;
+        }
+
+        .compact-types {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .map-panel.light {
+          min-height: 420px;
         }
       }
 
@@ -1072,7 +1299,9 @@
         .benefit-grid,
         .type-grid,
         .features-grid,
-        .faq-grid {
+        .faq-grid,
+        .country-list,
+        .compact-types {
           grid-template-columns: 1fr;
         }
 
@@ -1084,6 +1313,15 @@
 
         .map-panel {
           min-height: 330px;
+        }
+
+        .map-panel.light {
+          min-height: 360px;
+        }
+
+        .destination-panel,
+        .photo-band-copy {
+          padding: 28px 22px;
         }
 
         .owner-copy {
@@ -1122,9 +1360,9 @@
           <img class="hero-media" src="https://retreatvenues.com/wp-content/uploads/2026/02/Pool.png" alt="Retreat venue with swimming pool" />
           <div class="hero-inner">
             <div class="hero-copy">
-              <div class="eyebrow">Retreat venues worldwide</div>
-              <h1>Find the right venue for your next retreat.</h1>
-              <p class="hero-lede">Explore retreat centers, villas and hotels for yoga retreats, wellness escapes, workshops and group experiences. No booking fee, direct contact with venues.</p>
+              <div class="eyebrow">Free for retreat organizers</div>
+              <h1>Find the perfect retreat venue, without booking fees.</h1>
+              <p class="hero-lede">Browse retreat centers, villas and hotels worldwide. Compare spaces, check availability and contact venues directly.</p>
             </div>
 
             <form class="search-card" action="#">
@@ -1144,15 +1382,19 @@
             </form>
 
             <div class="hero-links">
-              <span>300+ venues in 50+ countries</span>
-              <a href="#">Browse all destinations</a>
-              <a href="#">List your venue</a>
+              <span>Free for organizers</span>
+              <a href="https://retreatvenues.com/search-by-country/">Browse all destinations</a>
+              <a href="https://retreatvenues.com/featured/">See favorite venues</a>
             </div>
           </div>
         </section>
 
         <section class="stats-band" aria-label="RetreatVenues statistics">
           <div class="stats-inner">
+            <div class="stat">
+              <strong>Free</strong>
+              <span>for retreat organizers</span>
+            </div>
             <div class="stat">
               <strong>300+</strong>
               <span>retreat venues listed</span>
@@ -1165,49 +1407,44 @@
               <strong>0%</strong>
               <span>booking commission</span>
             </div>
-            <div class="stat">
-              <strong>Direct</strong>
-              <span>communication with venues</span>
-            </div>
           </div>
         </section>
 
         <section class="section cream">
           <div class="section-inner">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Why organizers use us</div>
-                <h2>Everything retreat planners need before they send an inquiry.</h2>
-              </div>
-              <p class="section-intro">RetreatVenues is built around group retreats, not generic hotel booking. That means clearer capacity details, direct contact and support when the search gets specific.</p>
-            </div>
+            <div class="search-destination-layout">
+              <div class="destination-panel">
+                <div class="section-kicker">Start your search</div>
+                <h2>Choose a destination, then find the right venue.</h2>
+                <p>Search by country, explore the map, or start with the most popular retreat destinations.</p>
 
-            <div class="benefit-grid">
-              <article class="benefit-card">
-                <div class="benefit-icon">0</div>
-                <h3>No booking fee</h3>
-                <p>Organizers contact venues directly and avoid commission on the booking.</p>
-              </article>
-              <article class="benefit-card">
-                <div class="benefit-icon">$</div>
-                <h3>Best price focus</h3>
-                <p>Direct conversations help avoid inflated platform pricing and hidden surprises.</p>
-              </article>
-              <article class="benefit-card">
-                <div class="benefit-icon">-></div>
-                <h3>Direct communication</h3>
-                <p>Speak with the venue team about dates, food, rooms, facilities and retreat needs.</p>
-              </article>
-              <article class="benefit-card">
-                <div class="benefit-icon">?</div>
-                <h3>Personalized help</h3>
-                <p>Get guidance when you need a shortlist, contract clarity or destination support.</p>
-              </article>
-              <article class="benefit-card">
-                <div class="benefit-icon">+</div>
-                <h3>Retreat promotion</h3>
-                <p>After booking, RetreatVenues can help promote the retreat to increase visibility.</p>
-              </article>
+                <div class="country-list">
+                  <a class="country-link" href="https://retreatvenues.com/france/">France <span>View venues</span></a>
+                  <a class="country-link" href="https://retreatvenues.com/costa-rica/">Costa Rica <span>View venues</span></a>
+                  <a class="country-link" href="https://retreatvenues.com/spain">Spain <span>View venues</span></a>
+                  <a class="country-link" href="https://retreatvenues.com/bali/">Bali <span>View venues</span></a>
+                  <a class="country-link" href="https://retreatvenues.com/thailand/">Thailand <span>View venues</span></a>
+                  <a class="country-link" href="https://retreatvenues.com/greece/">Greece <span>View venues</span></a>
+                </div>
+
+                <div style="margin-top: 28px;">
+                  <a class="rv-button" href="https://retreatvenues.com/search-by-country/">Browse all countries</a>
+                </div>
+              </div>
+
+              <a class="map-panel light" href="https://retreatvenues.com/find/" aria-label="Explore venues on the map">
+                <div class="map-line one"></div>
+                <div class="map-line two"></div>
+                <div class="pin a">12</div>
+                <div class="pin b">30</div>
+                <div class="pin c">7</div>
+                <div class="pin d">18</div>
+                <div class="pin e">4</div>
+                <div class="map-label">
+                  <strong>Explore venues on the map</strong>
+                  <span>See retreat spaces by region, destination and group size.</span>
+                </div>
+              </a>
             </div>
           </div>
         </section>
@@ -1216,10 +1453,10 @@
           <div class="section-inner">
             <div class="section-head">
               <div>
-                <div class="section-kicker">Featured venues</div>
-                <h2>Retreat spaces people can picture themselves booking.</h2>
+                <div class="section-kicker">Favorite venues</div>
+                <h2>Explore retreat spaces organizers already love.</h2>
               </div>
-              <p class="section-intro">Give organizers a first look at inspiring retreat spaces, with clear photos, location details and booking signals from the start.</p>
+              <p class="section-intro">Start with inspiring venues, then open the full listing when a space feels right for the retreat.</p>
             </div>
 
             <div class="venue-row">
@@ -1257,269 +1494,120 @@
 
               <article class="venue-card">
                 <div class="venue-image">
-                  <img src="https://retreatvenues.com/wp-content/uploads/2025/02/dharmashala3-400x314.jpg" alt="Dharma Shala Nicaragua" />
+                  <img src="https://retreatvenues.com/wp-content/uploads/2025/06/elverde10-400x314.jpeg" alt="Retreat venue in Spain" />
                   <span class="venue-badge">Featured</span>
                 </div>
                 <div class="venue-body">
-                  <h3>Dharma Shala Nicaragua</h3>
-                  <p class="venue-meta">Nicaragua / Eco retreat / 30 guests</p>
+                  <h3>El Verde Retreat Space</h3>
+                  <p class="venue-meta">Spain / Retreat Center / 15 guests</p>
                   <div class="venue-tags">
-                    <span class="tag">Jungle</span>
-                    <span class="tag">Eco</span>
+                    <span class="tag">Nature</span>
                     <span class="tag">Yoga hall</span>
+                    <span class="tag">Groups</span>
                   </div>
                 </div>
               </article>
             </div>
-          </div>
-        </section>
 
-        <section class="section cream">
-          <div class="section-inner">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Explore destinations</div>
-                <h2>Start with the place, then find the venue.</h2>
-              </div>
-              <p class="section-intro">Guide visitors toward the regions they already have in mind, then let them narrow the choice by venue type and group size.</p>
-            </div>
-
-            <div class="destination-grid">
-              <a class="destination-card" href="#">
-                <img src="https://retreatvenues.com/wp-content/uploads/2024/09/santosha1-400x314.jpg" alt="France retreat venue" />
-                <div class="destination-copy">
-                  <h3>France</h3>
-                  <p>Chateaux, countryside retreats and quiet wellness spaces.</p>
-                </div>
-              </a>
-              <a class="destination-card" href="#">
-                <img src="https://retreatvenues.com/wp-content/uploads/2025/05/Blue-Osa-Yoga-retreat-in-Costa-Rica-seats-bythe-beach-under-an-umbrela-400x314.jpg" alt="Costa Rica retreat venue" />
-                <div class="destination-copy">
-                  <h3>Costa Rica</h3>
-                  <p>Beachfront retreat centers and lush jungle hideaways.</p>
-                </div>
-              </a>
-              <a class="destination-card" href="#">
-                <img src="https://retreatvenues.com/wp-content/uploads/2024/09/gaiagermany1-400x314.webp" alt="Germany retreat venue" />
-                <div class="destination-copy">
-                  <h3>Germany</h3>
-                  <p>Peaceful venues for workshops, training and retreats.</p>
-                </div>
-              </a>
-              <a class="destination-card small" href="#">
-                <img src="https://retreatvenues.com/wp-content/uploads/2025/06/elverde10-400x314.jpeg" alt="Spain retreat venue" />
-                <div class="destination-copy">
-                  <h3>Spain</h3>
-                  <p>Sunlit spaces for movement, meditation and groups.</p>
-                </div>
-              </a>
-              <a class="destination-card small" href="#">
-                <img src="https://retreatvenues.com/wp-content/uploads/2025/02/dharmashala11-400x314.jpg" alt="Nicaragua retreat venue" />
-                <div class="destination-copy">
-                  <h3>Nicaragua</h3>
-                  <p>Warm, tropical venues for immersive retreat programs.</p>
-                </div>
-              </a>
-              <a class="destination-card small" href="#">
-                <img src="https://retreatvenues.com/wp-content/uploads/2025/05/Blue-Osa-Yoga-retreat-in-Costa-Rica-food-400x314.jpg" alt="Retreat dining setup" />
-                <div class="destination-copy">
-                  <h3>All countries</h3>
-                  <p>Browse venues across the full RetreatVenues directory.</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section class="section white">
-          <div class="section-inner">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Venue types</div>
-                <h2>From retreat centers to villas, filter by the space your program needs.</h2>
-              </div>
-              <p class="section-intro">Explore the range of spaces available for retreats, from dedicated retreat centers to villas, eco resorts, guesthouses and private estates.</p>
-            </div>
-
-            <div class="type-grid">
-              <a class="type-pill" href="#"><strong>Retreat Center</strong><span>146 properties</span></a>
-              <a class="type-pill" href="#"><strong>Villa</strong><span>71 properties</span></a>
-              <a class="type-pill" href="#"><strong>Eco Resort</strong><span>47 properties</span></a>
-              <a class="type-pill" href="#"><strong>Hotel</strong><span>37 properties</span></a>
-              <a class="type-pill" href="#"><strong>House</strong><span>30 properties</span></a>
-              <a class="type-pill" href="#"><strong>Guesthouse</strong><span>22 properties</span></a>
-              <a class="type-pill" href="#"><strong>Estate</strong><span>18 properties</span></a>
-              <a class="type-pill" href="#"><strong>Farm</strong><span>14 properties</span></a>
-              <a class="type-pill" href="#"><strong>Camp</strong><span>8 properties</span></a>
-              <a class="type-pill" href="#"><strong>Castle</strong><span>5 properties</span></a>
-              <a class="type-pill" href="#"><strong>Cabin</strong><span>5 properties</span></a>
-              <a class="type-pill" href="#"><strong>All venue types</strong><span>Browse all</span></a>
+            <div class="section-action">
+              <a class="rv-button secondary" href="https://retreatvenues.com/featured/">See our favorites</a>
             </div>
           </div>
         </section>
 
         <section class="section beige">
           <div class="section-inner">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">How it works</div>
-                <h2>Find, compare, contact and promote your retreat.</h2>
-              </div>
-              <p class="section-intro">The process stays simple for organizers: choose the right space, confirm availability, message the owner, then prepare the retreat.</p>
+            <div class="center-head">
+              <div class="section-kicker">How it works</div>
+              <h2>Find a venue in three simple steps.</h2>
+              <p class="section-intro">Search, check availability, then send your inquiry directly to the venue.</p>
             </div>
 
             <div class="steps-grid">
-              <article class="step-card">
-                <div class="step-number">1</div>
+              <article class="step-card visual-step">
+                <div class="step-number">
+                  <span class="step-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
+                  </span>
+                </div>
                 <h3>Find a venue</h3>
-                <p>Browse the directory or use filters for country, venue type, capacity, amenities and retreat style.</p>
+                <p>Search by destination, venue type and group size.</p>
               </article>
-              <article class="step-card">
-                <div class="step-number">2</div>
+              <article class="step-card visual-step">
+                <div class="step-number">
+                  <span class="step-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg>
+                  </span>
+                </div>
                 <h3>Check availability</h3>
-                <p>Add your dates and guest number to understand availability, pricing and practical fit.</p>
+                <p>Review dates, capacity, rooms, pricing signals and key details.</p>
               </article>
-              <article class="step-card">
-                <div class="step-number">3</div>
-                <h3>Send a message</h3>
-                <p>Describe your retreat plans and needs so the venue owner can respond with relevant details.</p>
-              </article>
-              <article class="step-card">
-                <div class="step-number">4</div>
-                <h3>Confirm with the venue</h3>
-                <p>Continue directly with the venue team to agree dates, deposit, meals, rooms and logistics.</p>
-              </article>
-              <article class="step-card">
-                <div class="step-number">5</div>
-                <h3>Promote the retreat</h3>
-                <p>After booking, send RetreatVenues your retreat details so the platform can help promote it.</p>
+              <article class="step-card visual-step">
+                <div class="step-number">
+                  <span class="step-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-5 3v-3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path></svg>
+                  </span>
+                </div>
+                <h3>Send an inquiry</h3>
+                <p>Contact the venue directly and continue the conversation without platform commission.</p>
               </article>
             </div>
           </div>
         </section>
 
-        <section class="section dark">
-          <div class="section-inner map-split">
-            <div class="map-copy">
-              <div class="section-kicker">Global directory</div>
-              <h2>Retreat venues across the world, gathered in one place.</h2>
-              <p>Use the map as a quick visual proof of global coverage, then help visitors move into the destination or venue type that fits their retreat.</p>
-              <div style="margin-top: 28px;">
-                <a class="rv-button secondary" href="#">Explore the map</a>
+        <section class="section cream">
+          <div class="section-inner">
+            <div class="photo-band">
+              <div class="photo-band-copy">
+                <div class="section-kicker">Free for organizers</div>
+                <h2>No booking fee. No commission. Direct contact.</h2>
+                <p>RetreatVenues is free for organizers searching for a venue. Your inquiry goes directly to the venue, so you can discuss dates, meals, rooms and logistics without a middleman.</p>
+                <div style="margin-top: 28px;">
+                  <a class="rv-button secondary" href="https://retreatvenues.com/find/">Start searching</a>
+                </div>
+              </div>
+              <div class="photo-band-media">
+                <img src="https://retreatvenues.com/wp-content/uploads/2026/02/Pool.png" alt="Retreat venue with pool and mountain view" />
               </div>
             </div>
-            <div class="map-panel" aria-label="Map preview">
-              <div class="map-line one"></div>
-              <div class="map-line two"></div>
-              <div class="pin a">12</div>
-              <div class="pin b">30</div>
-              <div class="pin c">7</div>
-              <div class="pin d">18</div>
-              <div class="pin e">4</div>
+          </div>
+        </section>
+
+        <section class="section white">
+          <div class="section-inner">
+            <div class="center-head">
+              <div class="section-kicker">Venue types</div>
+              <h2>Browse by venue type.</h2>
+              <p class="section-intro">Start broad, then narrow by capacity, destination and facilities.</p>
+            </div>
+
+            <div class="compact-types">
+              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Retreat Centers</strong><span>Browse</span></a>
+              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Villas</strong><span>Browse</span></a>
+              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Hotels</strong><span>Browse</span></a>
+              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Eco Resorts</strong><span>Browse</span></a>
+              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Camps</strong><span>Browse</span></a>
+              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Houses</strong><span>Browse</span></a>
             </div>
           </div>
         </section>
 
         <section class="section beige">
           <div class="section-inner">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Planning guide</div>
-                <h2>Choose the venue that fits the retreat, not just the photo.</h2>
-              </div>
-              <p class="section-intro">Use these practical checks to avoid expensive mistakes and focus on venues that fit the real needs of the retreat.</p>
-            </div>
-
-            <div class="guide-layout">
-              <article class="guide-panel highlight">
-                <h3>Before you search, define the non-negotiables.</h3>
-                <p>Most venue searches go wrong because organizers start with beautiful images instead of the real constraints of the retreat.</p>
+            <div class="photo-band">
+              <div class="photo-band-copy">
+                <div class="section-kicker">Before you choose</div>
+                <h2>A better shortlist starts with the right questions.</h2>
+                <p>Beautiful photos help, but a retreat venue also needs to work for the group, the schedule and the budget.</p>
                 <ul class="guide-list">
-                  <li>How many people are actually coming?</li>
-                  <li>What is the real budget per person?</li>
-                  <li>What does the group absolutely need on site?</li>
-                  <li>How far can the venue be from a major airport?</li>
+                  <li>Group size, rooms, bathrooms and retreat room setup.</li>
+                  <li>Meals, dietary needs and kitchen flexibility.</li>
+                  <li>Airport distance, transport and arrival logistics.</li>
+                  <li>Deposit terms, cancellation policy and hidden fees.</li>
                 </ul>
-              </article>
-              <article class="guide-panel">
-                <h3>What to compare before sending an inquiry.</h3>
-                <p>A retreat venue needs to work operationally: rooms, food, staff, transport, quiet spaces, backup plans and the right atmosphere.</p>
-                <ul class="guide-list">
-                  <li>Capacity, bedrooms, bathrooms and retreat room setup.</li>
-                  <li>Food quality, meal flexibility and dietary needs.</li>
-                  <li>Reliable WiFi, basic AV, outlets and phone reception.</li>
-                  <li>Cancellation policy, deposit terms and hidden fees.</li>
-                  <li>Responsiveness from the venue team.</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section white">
-          <div class="section-inner">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Why RetreatVenues</div>
-                <h2>Built for organizers who need more than a generic booking site.</h2>
               </div>
-              <p class="section-intro">Traditional booking platforms are not designed around retreats. RetreatVenues focuses on the details that matter to groups, facilitators and retreat leaders.</p>
-            </div>
-
-            <div class="features-grid">
-              <article class="feature-card">
-                <div class="feature-dot"></div>
-                <h3>Retreat-specific search</h3>
-                <p>Filter by capacity, bedrooms, bathrooms, environment, venue type and group needs.</p>
-              </article>
-              <article class="feature-card">
-                <div class="feature-dot"></div>
-                <h3>Transparent venue details</h3>
-                <p>Listings highlight the practical information organizers need before making contact.</p>
-              </article>
-              <article class="feature-card">
-                <div class="feature-dot"></div>
-                <h3>Direct owner contact</h3>
-                <p>Custom arrangements are easier when organizers speak directly with the venue.</p>
-              </article>
-              <article class="feature-card">
-                <div class="feature-dot"></div>
-                <h3>Support beyond search</h3>
-                <p>The team can help with recommendations, booking questions and retreat promotion.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section cream">
-          <div class="section-inner">
-            <div class="two-column-copy">
-              <article class="copy-block">
-                <h3>Global selection, curated for retreat leaders.</h3>
-                <p>Browse retreat venues in established destinations like Bali, Costa Rica and Thailand, plus hidden gems across Europe, South America and beyond. Whether the retreat is intimate or built for a large group, the catalog is structured for discovery.</p>
-              </article>
-              <article class="copy-block">
-                <h3>Support throughout the journey.</h3>
-                <p>Finding the venue is only the beginning. RetreatVenues can support availability checks, owner communication, booking questions and personalized recommendations when the ideal space is not obvious yet.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section cream">
-          <div class="section-inner">
-            <div class="owner-cta">
-              <div class="owner-copy">
-                <div class="section-kicker">For venue owners</div>
-                <h2>Bring more retreat organizers to your venue.</h2>
-                <p>List your venue once, keep your booking revenue, and receive direct inquiries from organizers looking for spaces like yours.</p>
-                <div class="owner-actions">
-                  <a class="rv-button secondary" href="#">List your venue</a>
-                  <a class="rv-button" href="#">See pricing</a>
-                </div>
-              </div>
-              <div class="cta-image">
-                <img src="https://retreatvenues.com/wp-content/uploads/2025/02/dharmashala12-400x314.jpg" alt="Retreat venue interior" />
+              <div class="photo-band-media">
+                <img src="https://retreatvenues.com/wp-content/uploads/2026/01/piscine-1-400x314.webp" alt="Retreat venue pool and countryside setting" />
               </div>
             </div>
           </div>
@@ -1527,36 +1615,34 @@
 
         <section class="section white">
           <div class="section-inner">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Questions</div>
-                <h2>Answers before visitors start searching.</h2>
-              </div>
+            <div class="center-head">
+              <div class="section-kicker">Questions</div>
+              <h2>Before you send an inquiry.</h2>
             </div>
             <div class="faq-grid">
               <article class="faq-card">
-                <h3>Do organizers book through RetreatVenues?</h3>
-                <p>No. They send an inquiry and continue directly with the venue, so there is no marketplace booking commission.</p>
+                <h3>Is RetreatVenues free for organizers?</h3>
+                <p>Yes. Organizers can search venues and send inquiries without a booking fee or commission.</p>
               </article>
               <article class="faq-card">
-                <h3>Can I search by group size?</h3>
-                <p>Yes. Capacity is one of the core search needs for retreat planning.</p>
+                <h3>Do I book directly with the venue?</h3>
+                <p>Yes. RetreatVenues helps you discover venues, then you continue the conversation directly with the venue.</p>
               </article>
               <article class="faq-card">
-                <h3>Are venues worldwide?</h3>
-                <p>The catalog includes retreat centers, hotels and villas across 50+ countries.</p>
-              </article>
-              <article class="faq-card">
-                <h3>Can venues be added by owners?</h3>
-                <p>Venue owners can choose a listing plan and submit their details to be published.</p>
+                <h3>Can I search by country or group size?</h3>
+                <p>Yes. Start by destination, then narrow by venue type, capacity and key facilities.</p>
               </article>
               <article class="faq-card">
                 <h3>How far in advance should I book?</h3>
-                <p>Plan at least 6 months ahead when possible, and closer to 12 months for popular venues or high season dates.</p>
+                <p>Six months is a good minimum. Popular venues and high-season dates often need 12 months or more.</p>
               </article>
               <article class="faq-card">
                 <h3>What should I ask before confirming?</h3>
-                <p>Ask about deposit terms, cancellation policy, food, room setup, WiFi, AV, airport access and hidden fees.</p>
+                <p>Ask about deposit terms, cancellation policy, rooms, food, WiFi, AV, airport access and hidden fees.</p>
+              </article>
+              <article class="faq-card">
+                <h3>Can RetreatVenues help me find options?</h3>
+                <p>Yes. The team can help you build a shortlist based on your destination, group size and retreat needs.</p>
               </article>
             </div>
           </div>
