@@ -1,0 +1,1567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RetreatVenues Home Redesign V1</title>
+    <style>
+      :root {
+        --rv-violet: #705463;
+        --rv-violet-dark: #5c4351;
+        --rv-beige: #ede6e2;
+        --rv-cream: #fbf7f4;
+        --rv-white: #ffffff;
+        --rv-ink: #2f292c;
+        --rv-muted: #756b70;
+        --rv-green: #7b8a73;
+        --rv-line: rgba(112, 84, 99, 0.18);
+        --rv-shadow: 0 18px 45px rgba(47, 41, 44, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--rv-ink);
+        background: var(--rv-cream);
+        line-height: 1.55;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .site-shell {
+        min-height: 100vh;
+        background:
+          linear-gradient(180deg, rgba(251, 247, 244, 0.95), rgba(237, 230, 226, 0.55) 58%, #ffffff 100%);
+      }
+
+      .rv-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        height: 74px;
+        background: rgba(251, 247, 244, 0.94);
+        border-bottom: 1px solid rgba(112, 84, 99, 0.1);
+        backdrop-filter: blur(14px);
+      }
+
+      .rv-header-inner {
+        width: min(1180px, calc(100% - 48px));
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .rv-logo {
+        display: flex;
+        align-items: center;
+        width: 92px;
+        flex: 0 0 92px;
+      }
+
+      .rv-logo img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+      }
+
+      .rv-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 34px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--rv-ink);
+      }
+
+      .rv-nav a {
+        opacity: 0.86;
+      }
+
+      .rv-nav a:hover {
+        color: var(--rv-violet);
+        opacity: 1;
+      }
+
+      .rv-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .rv-login {
+        color: var(--rv-violet);
+      }
+
+      .rv-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 22px;
+        border: 1px solid var(--rv-violet);
+        border-radius: 999px;
+        background: var(--rv-violet);
+        color: #fff;
+        font-weight: 800;
+        white-space: nowrap;
+        box-shadow: 0 12px 28px rgba(112, 84, 99, 0.2);
+      }
+
+      .rv-button:hover {
+        background: var(--rv-violet-dark);
+        border-color: var(--rv-violet-dark);
+      }
+
+      .rv-button.secondary {
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--rv-violet);
+        box-shadow: none;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 720px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: #201b1d;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at center, rgba(22, 18, 20, 0.1) 0%, rgba(22, 18, 20, 0.42) 58%, rgba(22, 18, 20, 0.72) 100%),
+          linear-gradient(180deg, rgba(22, 18, 20, 0.2) 0%, rgba(22, 18, 20, 0.62) 100%);
+        z-index: 1;
+      }
+
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 86px 0 58px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-copy {
+        max-width: 980px;
+        color: #fff;
+        text-align: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 38px;
+        padding: 0 16px;
+        border: 1px solid rgba(255, 255, 255, 0.38);
+        border-radius: 999px;
+        background: rgba(251, 247, 244, 0.12);
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--rv-green);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .hero h1 {
+        max-width: 980px;
+        margin-top: 28px;
+        font-size: 72px;
+        line-height: 0.98;
+        font-weight: 850;
+        letter-spacing: 0;
+      }
+
+      .hero-lede {
+        max-width: 720px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 24px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 21px;
+        line-height: 1.55;
+        font-weight: 500;
+      }
+
+      .search-card {
+        width: min(1040px, 100%);
+        margin-top: 42px;
+        padding: 16px;
+        display: grid;
+        grid-template-columns: 1.05fr 1fr 0.8fr auto;
+        gap: 1px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+      }
+
+      .search-field {
+        min-width: 0;
+        padding: 0 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-right: 1px solid rgba(112, 84, 99, 0.16);
+      }
+
+      .search-field:last-of-type {
+        border-right: 0;
+      }
+
+      .search-label {
+        color: var(--rv-ink);
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .search-value {
+        margin-top: 2px;
+        color: var(--rv-muted);
+        font-size: 15px;
+        font-weight: 650;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .search-submit {
+        min-height: 58px;
+        padding: 0 32px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--rv-violet);
+        color: #fff;
+        font-weight: 850;
+        cursor: pointer;
+      }
+
+      .search-submit:hover {
+        background: var(--rv-violet-dark);
+      }
+
+      .hero-links {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      .hero-links a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+      }
+
+      .stats-band {
+        background: var(--rv-violet);
+        color: #fff;
+      }
+
+      .stats-inner {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+        min-height: 126px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+        align-items: center;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 34px;
+        line-height: 1;
+        font-weight: 850;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .section {
+        padding: 88px 0;
+      }
+
+      .section.white {
+        background: #fff;
+      }
+
+      .section.cream {
+        background: var(--rv-cream);
+      }
+
+      .section.beige {
+        background: var(--rv-beige);
+      }
+
+      .section.dark {
+        background: #2f292c;
+        color: #fff;
+      }
+
+      .section-inner {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 36px;
+        margin-bottom: 34px;
+      }
+
+      .section-kicker {
+        color: var(--rv-green);
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 850;
+      }
+
+      .section h2 {
+        margin-top: 8px;
+        max-width: 740px;
+        font-size: 42px;
+        line-height: 1.08;
+        font-weight: 850;
+        letter-spacing: 0;
+      }
+
+      .section-intro {
+        max-width: 430px;
+        color: var(--rv-muted);
+        font-size: 16px;
+        font-weight: 550;
+      }
+
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .benefit-card {
+        min-height: 178px;
+        padding: 22px;
+        border: 1px solid rgba(112, 84, 99, 0.12);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 42px rgba(47, 41, 44, 0.06);
+      }
+
+      .benefit-icon {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--rv-beige);
+        color: var(--rv-violet);
+        font-size: 20px;
+        font-weight: 850;
+      }
+
+      .benefit-card h3 {
+        margin-top: 18px;
+        color: var(--rv-violet);
+        font-size: 19px;
+        line-height: 1.16;
+        font-weight: 850;
+      }
+
+      .benefit-card p {
+        margin-top: 10px;
+        color: var(--rv-muted);
+        font-size: 14px;
+        font-weight: 550;
+      }
+
+      .venue-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .venue-card,
+      .destination-card,
+      .feature-card,
+      .step-card,
+      .faq-card {
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 42px rgba(47, 41, 44, 0.08);
+        overflow: hidden;
+      }
+
+      .venue-image {
+        position: relative;
+        height: 260px;
+        overflow: hidden;
+        background: #e8ded8;
+      }
+
+      .venue-image img,
+      .destination-card img,
+      .cta-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .venue-badge {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        padding: 7px 11px;
+        border-radius: 4px;
+        background: var(--rv-violet);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 850;
+      }
+
+      .venue-body {
+        padding: 22px;
+      }
+
+      .venue-body h3 {
+        font-size: 24px;
+        line-height: 1.18;
+        color: var(--rv-violet);
+        font-weight: 850;
+      }
+
+      .venue-meta {
+        margin-top: 12px;
+        color: var(--rv-muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .venue-tags {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        padding: 6px 9px;
+        border-radius: 999px;
+        background: var(--rv-cream);
+        color: var(--rv-violet);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .destination-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 18px;
+      }
+
+      .destination-card {
+        position: relative;
+        height: 320px;
+        grid-column: span 2;
+        color: #fff;
+        background: #2f292c;
+      }
+
+      .destination-card.small {
+        height: 238px;
+        grid-column: span 2;
+      }
+
+      .destination-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(47, 41, 44, 0.08), rgba(47, 41, 44, 0.78));
+      }
+
+      .destination-copy {
+        position: absolute;
+        z-index: 2;
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+      }
+
+      .destination-copy h3 {
+        font-size: 28px;
+        line-height: 1.05;
+        font-weight: 850;
+      }
+
+      .destination-copy p {
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .type-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .type-pill {
+        min-height: 76px;
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border: 1px solid rgba(112, 84, 99, 0.12);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 12px 32px rgba(47, 41, 44, 0.05);
+      }
+
+      .type-pill strong {
+        color: var(--rv-ink);
+        font-size: 16px;
+        font-weight: 850;
+      }
+
+      .type-pill span {
+        color: var(--rv-violet);
+        font-size: 13px;
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .step-card {
+        padding: 28px;
+        min-height: 250px;
+      }
+
+      .step-number {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--rv-beige);
+        color: var(--rv-violet);
+        font-weight: 850;
+      }
+
+      .step-card h3 {
+        margin-top: 24px;
+        font-size: 24px;
+        line-height: 1.16;
+        color: var(--rv-violet);
+        font-weight: 850;
+      }
+
+      .step-card p {
+        margin-top: 12px;
+        color: var(--rv-muted);
+        font-weight: 550;
+      }
+
+      .map-split {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 36px;
+        align-items: center;
+      }
+
+      .map-copy h2 {
+        color: #fff;
+      }
+
+      .map-copy p {
+        max-width: 470px;
+        margin-top: 18px;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 17px;
+        font-weight: 550;
+      }
+
+      .map-panel {
+        position: relative;
+        min-height: 420px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        overflow: hidden;
+        background:
+          linear-gradient(135deg, rgba(237, 230, 226, 0.08), rgba(123, 138, 115, 0.16)),
+          #3b3236;
+      }
+
+      .map-panel::before {
+        content: "";
+        position: absolute;
+        inset: 42px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 50%;
+      }
+
+      .map-line {
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .map-line.one {
+        top: 32%;
+      }
+
+      .map-line.two {
+        top: 58%;
+      }
+
+      .pin {
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--rv-violet);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 850;
+        box-shadow: 0 0 0 9px rgba(112, 84, 99, 0.22);
+      }
+
+      .pin.a { left: 18%; top: 42%; }
+      .pin.b { left: 39%; top: 24%; }
+      .pin.c { left: 52%; top: 49%; }
+      .pin.d { left: 71%; top: 32%; }
+      .pin.e { left: 80%; top: 66%; }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .feature-card {
+        padding: 24px;
+        min-height: 178px;
+      }
+
+      .feature-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--rv-green);
+      }
+
+      .feature-card h3 {
+        margin-top: 24px;
+        font-size: 20px;
+        line-height: 1.18;
+        color: var(--rv-violet);
+        font-weight: 850;
+      }
+
+      .feature-card p {
+        margin-top: 10px;
+        color: var(--rv-muted);
+        font-size: 14px;
+        font-weight: 550;
+      }
+
+      .guide-layout {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .guide-panel {
+        padding: 34px;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 42px rgba(47, 41, 44, 0.07);
+      }
+
+      .guide-panel.highlight {
+        background: var(--rv-violet);
+        color: #fff;
+      }
+
+      .guide-panel h3 {
+        color: var(--rv-violet);
+        font-size: 28px;
+        line-height: 1.12;
+        font-weight: 850;
+      }
+
+      .guide-panel.highlight h3 {
+        color: #fff;
+      }
+
+      .guide-panel p {
+        margin-top: 14px;
+        color: var(--rv-muted);
+        font-size: 16px;
+        font-weight: 550;
+      }
+
+      .guide-panel.highlight p {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .guide-list {
+        margin: 22px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+        list-style: none;
+      }
+
+      .guide-list li {
+        position: relative;
+        padding-left: 20px;
+        color: var(--rv-muted);
+        font-weight: 650;
+      }
+
+      .guide-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.68em;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--rv-green);
+      }
+
+      .guide-panel.highlight .guide-list li {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .two-column-copy {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .copy-block {
+        padding: 28px;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 42px rgba(47, 41, 44, 0.06);
+      }
+
+      .copy-block h3 {
+        color: var(--rv-violet);
+        font-size: 24px;
+        line-height: 1.14;
+        font-weight: 850;
+      }
+
+      .copy-block p {
+        margin-top: 12px;
+        color: var(--rv-muted);
+        font-weight: 550;
+      }
+
+      .owner-cta {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--rv-violet);
+        color: #fff;
+        box-shadow: var(--rv-shadow);
+      }
+
+      .owner-copy {
+        padding: 54px;
+      }
+
+      .owner-copy h2 {
+        color: #fff;
+        font-size: 44px;
+      }
+
+      .owner-copy p {
+        max-width: 560px;
+        margin-top: 18px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 17px;
+        font-weight: 550;
+      }
+
+      .owner-actions {
+        margin-top: 28px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .owner-actions .rv-button.secondary {
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+
+      .cta-image {
+        min-height: 420px;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .faq-card {
+        padding: 22px;
+      }
+
+      .faq-card h3 {
+        font-size: 18px;
+        line-height: 1.25;
+        color: var(--rv-violet);
+        font-weight: 850;
+      }
+
+      .faq-card p {
+        margin-top: 10px;
+        color: var(--rv-muted);
+        font-size: 14px;
+        font-weight: 550;
+      }
+
+      @media (max-width: 1024px) {
+        .rv-nav {
+          gap: 18px;
+          font-size: 13px;
+        }
+
+        .hero {
+          min-height: 680px;
+        }
+
+        .hero h1 {
+          font-size: 58px;
+        }
+
+        .search-card {
+          grid-template-columns: 1fr 1fr;
+          border-radius: 8px;
+        }
+
+        .search-field {
+          min-height: 70px;
+        }
+
+        .search-submit {
+          grid-column: span 2;
+        }
+
+        .stats-inner,
+        .benefit-grid,
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .venue-row,
+        .steps-grid,
+        .guide-layout,
+        .two-column-copy {
+          grid-template-columns: 1fr;
+        }
+
+        .venue-image {
+          height: 320px;
+        }
+
+        .destination-card,
+        .destination-card.small {
+          grid-column: span 3;
+        }
+
+        .type-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .map-split,
+        .owner-cta {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .rv-header {
+          height: auto;
+        }
+
+        .rv-header-inner {
+          width: min(100% - 32px, 1180px);
+          min-height: 72px;
+        }
+
+        .rv-logo {
+          width: 72px;
+          flex-basis: 72px;
+        }
+
+        .rv-logo img {
+          width: 58px;
+          height: 58px;
+        }
+
+        .rv-nav,
+        .rv-login {
+          display: none;
+        }
+
+        .rv-button {
+          min-height: 42px;
+          padding: 0 16px;
+          font-size: 13px;
+        }
+
+        .hero {
+          min-height: 720px;
+          align-items: end;
+        }
+
+        .hero-inner {
+          width: min(100% - 32px, 1180px);
+          padding: 54px 0 32px;
+        }
+
+        .hero h1 {
+          font-size: 42px;
+          line-height: 1.04;
+        }
+
+        .hero-lede {
+          font-size: 17px;
+        }
+
+        .search-card {
+          grid-template-columns: 1fr;
+          padding: 12px;
+        }
+
+        .search-submit {
+          grid-column: auto;
+        }
+
+        .search-field {
+          padding: 12px 14px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(112, 84, 99, 0.12);
+        }
+
+        .hero-links {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .stats-inner {
+          width: min(100% - 32px, 1180px);
+          grid-template-columns: 1fr 1fr;
+          padding: 24px 0;
+        }
+
+        .section {
+          padding: 62px 0;
+        }
+
+        .section-inner {
+          width: min(100% - 32px, 1180px);
+        }
+
+        .section-head {
+          display: block;
+        }
+
+        .section h2,
+        .owner-copy h2 {
+          font-size: 34px;
+        }
+
+        .section-intro {
+          margin-top: 16px;
+        }
+
+        .venue-image {
+          height: 260px;
+        }
+
+        .destination-grid,
+        .benefit-grid,
+        .type-grid,
+        .features-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .destination-card,
+        .destination-card.small {
+          grid-column: auto;
+          height: 285px;
+        }
+
+        .map-panel {
+          min-height: 330px;
+        }
+
+        .owner-copy {
+          padding: 34px 24px;
+        }
+
+        .cta-image {
+          min-height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="rv-header">
+        <div class="rv-header-inner">
+          <a class="rv-logo" href="#">
+            <img src="https://retreatvenues.com/wp-content/uploads/2026/06/Design-sans-titre-6.png" alt="RetreatVenues" />
+          </a>
+          <nav class="rv-nav" aria-label="Main navigation">
+            <a href="#">Retreat Venue for Hire</a>
+            <a href="#">List Your Venue</a>
+            <a href="#">Our Favorites</a>
+            <a href="#">Marketing Services</a>
+            <a href="#">FAQ</a>
+          </nav>
+          <div class="rv-header-actions">
+            <a class="rv-login" href="#">Venue Login</a>
+            <a class="rv-button" href="#">List Your Venue</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <img class="hero-media" src="https://retreatvenues.com/wp-content/uploads/2026/02/Pool.png" alt="Retreat venue with swimming pool" />
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <div class="eyebrow">Retreat venues worldwide</div>
+              <h1>Find the right venue for your next retreat.</h1>
+              <p class="hero-lede">Explore retreat centers, villas and hotels for yoga retreats, wellness escapes, workshops and group experiences. No booking fee, direct contact with venues.</p>
+            </div>
+
+            <form class="search-card" action="#">
+              <label class="search-field">
+                <span class="search-label">Destination</span>
+                <span class="search-value">Choose a country or region</span>
+              </label>
+              <label class="search-field">
+                <span class="search-label">Retreat type</span>
+                <span class="search-value">Yoga, wellness, corporate</span>
+              </label>
+              <label class="search-field">
+                <span class="search-label">Guests</span>
+                <span class="search-value">Group size</span>
+              </label>
+              <button class="search-submit" type="submit">Search venues</button>
+            </form>
+
+            <div class="hero-links">
+              <span>300+ venues in 50+ countries</span>
+              <a href="#">Browse all destinations</a>
+              <a href="#">List your venue</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-band" aria-label="RetreatVenues statistics">
+          <div class="stats-inner">
+            <div class="stat">
+              <strong>300+</strong>
+              <span>retreat venues listed</span>
+            </div>
+            <div class="stat">
+              <strong>50+</strong>
+              <span>countries represented</span>
+            </div>
+            <div class="stat">
+              <strong>0%</strong>
+              <span>booking commission</span>
+            </div>
+            <div class="stat">
+              <strong>Direct</strong>
+              <span>communication with venues</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cream">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Why organizers use us</div>
+                <h2>Everything retreat planners need before they send an inquiry.</h2>
+              </div>
+              <p class="section-intro">RetreatVenues is built around group retreats, not generic hotel booking. That means clearer capacity details, direct contact and support when the search gets specific.</p>
+            </div>
+
+            <div class="benefit-grid">
+              <article class="benefit-card">
+                <div class="benefit-icon">0</div>
+                <h3>No booking fee</h3>
+                <p>Organizers contact venues directly and avoid commission on the booking.</p>
+              </article>
+              <article class="benefit-card">
+                <div class="benefit-icon">$</div>
+                <h3>Best price focus</h3>
+                <p>Direct conversations help avoid inflated platform pricing and hidden surprises.</p>
+              </article>
+              <article class="benefit-card">
+                <div class="benefit-icon">-></div>
+                <h3>Direct communication</h3>
+                <p>Speak with the venue team about dates, food, rooms, facilities and retreat needs.</p>
+              </article>
+              <article class="benefit-card">
+                <div class="benefit-icon">?</div>
+                <h3>Personalized help</h3>
+                <p>Get guidance when you need a shortlist, contract clarity or destination support.</p>
+              </article>
+              <article class="benefit-card">
+                <div class="benefit-icon">+</div>
+                <h3>Retreat promotion</h3>
+                <p>After booking, RetreatVenues can help promote the retreat to increase visibility.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section white">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Featured venues</div>
+                <h2>Retreat spaces people can picture themselves booking.</h2>
+              </div>
+              <p class="section-intro">Give organizers a first look at inspiring retreat spaces, with clear photos, location details and booking signals from the start.</p>
+            </div>
+
+            <div class="venue-row">
+              <article class="venue-card">
+                <div class="venue-image">
+                  <img src="https://retreatvenues.com/wp-content/uploads/2025/05/blueosa1-400x314.jpg" alt="Beach retreat venue in Costa Rica" />
+                  <span class="venue-badge">Price on request</span>
+                </div>
+                <div class="venue-body">
+                  <h3>Beach Resort & Spa</h3>
+                  <p class="venue-meta">Costa Rica / Retreat Center / 45 guests</p>
+                  <div class="venue-tags">
+                    <span class="tag">Beach</span>
+                    <span class="tag">Yoga</span>
+                    <span class="tag">Wellness</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="venue-card">
+                <div class="venue-image">
+                  <img src="https://retreatvenues.com/wp-content/uploads/2024/10/Capture-de%CC%81cran-2025-11-25-a%CC%80-09.10.01.png" alt="OZEN retreat and yoga center" />
+                  <span class="venue-badge">From $90/night</span>
+                </div>
+                <div class="venue-body">
+                  <h3>OZEN Retreat Center</h3>
+                  <p class="venue-meta">Europe / Retreat Center / 20 guests</p>
+                  <div class="venue-tags">
+                    <span class="tag">Nature</span>
+                    <span class="tag">Groups</span>
+                    <span class="tag">Catering</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="venue-card">
+                <div class="venue-image">
+                  <img src="https://retreatvenues.com/wp-content/uploads/2025/02/dharmashala3-400x314.jpg" alt="Dharma Shala Nicaragua" />
+                  <span class="venue-badge">Featured</span>
+                </div>
+                <div class="venue-body">
+                  <h3>Dharma Shala Nicaragua</h3>
+                  <p class="venue-meta">Nicaragua / Eco retreat / 30 guests</p>
+                  <div class="venue-tags">
+                    <span class="tag">Jungle</span>
+                    <span class="tag">Eco</span>
+                    <span class="tag">Yoga hall</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cream">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Explore destinations</div>
+                <h2>Start with the place, then find the venue.</h2>
+              </div>
+              <p class="section-intro">Guide visitors toward the regions they already have in mind, then let them narrow the choice by venue type and group size.</p>
+            </div>
+
+            <div class="destination-grid">
+              <a class="destination-card" href="#">
+                <img src="https://retreatvenues.com/wp-content/uploads/2024/09/santosha1-400x314.jpg" alt="France retreat venue" />
+                <div class="destination-copy">
+                  <h3>France</h3>
+                  <p>Chateaux, countryside retreats and quiet wellness spaces.</p>
+                </div>
+              </a>
+              <a class="destination-card" href="#">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/05/Blue-Osa-Yoga-retreat-in-Costa-Rica-seats-bythe-beach-under-an-umbrela-400x314.jpg" alt="Costa Rica retreat venue" />
+                <div class="destination-copy">
+                  <h3>Costa Rica</h3>
+                  <p>Beachfront retreat centers and lush jungle hideaways.</p>
+                </div>
+              </a>
+              <a class="destination-card" href="#">
+                <img src="https://retreatvenues.com/wp-content/uploads/2024/09/gaiagermany1-400x314.webp" alt="Germany retreat venue" />
+                <div class="destination-copy">
+                  <h3>Germany</h3>
+                  <p>Peaceful venues for workshops, training and retreats.</p>
+                </div>
+              </a>
+              <a class="destination-card small" href="#">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/06/elverde10-400x314.jpeg" alt="Spain retreat venue" />
+                <div class="destination-copy">
+                  <h3>Spain</h3>
+                  <p>Sunlit spaces for movement, meditation and groups.</p>
+                </div>
+              </a>
+              <a class="destination-card small" href="#">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/02/dharmashala11-400x314.jpg" alt="Nicaragua retreat venue" />
+                <div class="destination-copy">
+                  <h3>Nicaragua</h3>
+                  <p>Warm, tropical venues for immersive retreat programs.</p>
+                </div>
+              </a>
+              <a class="destination-card small" href="#">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/05/Blue-Osa-Yoga-retreat-in-Costa-Rica-food-400x314.jpg" alt="Retreat dining setup" />
+                <div class="destination-copy">
+                  <h3>All countries</h3>
+                  <p>Browse venues across the full RetreatVenues directory.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section white">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Venue types</div>
+                <h2>From retreat centers to villas, filter by the space your program needs.</h2>
+              </div>
+              <p class="section-intro">Explore the range of spaces available for retreats, from dedicated retreat centers to villas, eco resorts, guesthouses and private estates.</p>
+            </div>
+
+            <div class="type-grid">
+              <a class="type-pill" href="#"><strong>Retreat Center</strong><span>146 properties</span></a>
+              <a class="type-pill" href="#"><strong>Villa</strong><span>71 properties</span></a>
+              <a class="type-pill" href="#"><strong>Eco Resort</strong><span>47 properties</span></a>
+              <a class="type-pill" href="#"><strong>Hotel</strong><span>37 properties</span></a>
+              <a class="type-pill" href="#"><strong>House</strong><span>30 properties</span></a>
+              <a class="type-pill" href="#"><strong>Guesthouse</strong><span>22 properties</span></a>
+              <a class="type-pill" href="#"><strong>Estate</strong><span>18 properties</span></a>
+              <a class="type-pill" href="#"><strong>Farm</strong><span>14 properties</span></a>
+              <a class="type-pill" href="#"><strong>Camp</strong><span>8 properties</span></a>
+              <a class="type-pill" href="#"><strong>Castle</strong><span>5 properties</span></a>
+              <a class="type-pill" href="#"><strong>Cabin</strong><span>5 properties</span></a>
+              <a class="type-pill" href="#"><strong>All venue types</strong><span>Browse all</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section beige">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">How it works</div>
+                <h2>Find, compare, contact and promote your retreat.</h2>
+              </div>
+              <p class="section-intro">The process stays simple for organizers: choose the right space, confirm availability, message the owner, then prepare the retreat.</p>
+            </div>
+
+            <div class="steps-grid">
+              <article class="step-card">
+                <div class="step-number">1</div>
+                <h3>Find a venue</h3>
+                <p>Browse the directory or use filters for country, venue type, capacity, amenities and retreat style.</p>
+              </article>
+              <article class="step-card">
+                <div class="step-number">2</div>
+                <h3>Check availability</h3>
+                <p>Add your dates and guest number to understand availability, pricing and practical fit.</p>
+              </article>
+              <article class="step-card">
+                <div class="step-number">3</div>
+                <h3>Send a message</h3>
+                <p>Describe your retreat plans and needs so the venue owner can respond with relevant details.</p>
+              </article>
+              <article class="step-card">
+                <div class="step-number">4</div>
+                <h3>Confirm with the venue</h3>
+                <p>Continue directly with the venue team to agree dates, deposit, meals, rooms and logistics.</p>
+              </article>
+              <article class="step-card">
+                <div class="step-number">5</div>
+                <h3>Promote the retreat</h3>
+                <p>After booking, send RetreatVenues your retreat details so the platform can help promote it.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section dark">
+          <div class="section-inner map-split">
+            <div class="map-copy">
+              <div class="section-kicker">Global directory</div>
+              <h2>Retreat venues across the world, gathered in one place.</h2>
+              <p>Use the map as a quick visual proof of global coverage, then help visitors move into the destination or venue type that fits their retreat.</p>
+              <div style="margin-top: 28px;">
+                <a class="rv-button secondary" href="#">Explore the map</a>
+              </div>
+            </div>
+            <div class="map-panel" aria-label="Map preview">
+              <div class="map-line one"></div>
+              <div class="map-line two"></div>
+              <div class="pin a">12</div>
+              <div class="pin b">30</div>
+              <div class="pin c">7</div>
+              <div class="pin d">18</div>
+              <div class="pin e">4</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section beige">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Planning guide</div>
+                <h2>Choose the venue that fits the retreat, not just the photo.</h2>
+              </div>
+              <p class="section-intro">Use these practical checks to avoid expensive mistakes and focus on venues that fit the real needs of the retreat.</p>
+            </div>
+
+            <div class="guide-layout">
+              <article class="guide-panel highlight">
+                <h3>Before you search, define the non-negotiables.</h3>
+                <p>Most venue searches go wrong because organizers start with beautiful images instead of the real constraints of the retreat.</p>
+                <ul class="guide-list">
+                  <li>How many people are actually coming?</li>
+                  <li>What is the real budget per person?</li>
+                  <li>What does the group absolutely need on site?</li>
+                  <li>How far can the venue be from a major airport?</li>
+                </ul>
+              </article>
+              <article class="guide-panel">
+                <h3>What to compare before sending an inquiry.</h3>
+                <p>A retreat venue needs to work operationally: rooms, food, staff, transport, quiet spaces, backup plans and the right atmosphere.</p>
+                <ul class="guide-list">
+                  <li>Capacity, bedrooms, bathrooms and retreat room setup.</li>
+                  <li>Food quality, meal flexibility and dietary needs.</li>
+                  <li>Reliable WiFi, basic AV, outlets and phone reception.</li>
+                  <li>Cancellation policy, deposit terms and hidden fees.</li>
+                  <li>Responsiveness from the venue team.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section white">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Why RetreatVenues</div>
+                <h2>Built for organizers who need more than a generic booking site.</h2>
+              </div>
+              <p class="section-intro">Traditional booking platforms are not designed around retreats. RetreatVenues focuses on the details that matter to groups, facilitators and retreat leaders.</p>
+            </div>
+
+            <div class="features-grid">
+              <article class="feature-card">
+                <div class="feature-dot"></div>
+                <h3>Retreat-specific search</h3>
+                <p>Filter by capacity, bedrooms, bathrooms, environment, venue type and group needs.</p>
+              </article>
+              <article class="feature-card">
+                <div class="feature-dot"></div>
+                <h3>Transparent venue details</h3>
+                <p>Listings highlight the practical information organizers need before making contact.</p>
+              </article>
+              <article class="feature-card">
+                <div class="feature-dot"></div>
+                <h3>Direct owner contact</h3>
+                <p>Custom arrangements are easier when organizers speak directly with the venue.</p>
+              </article>
+              <article class="feature-card">
+                <div class="feature-dot"></div>
+                <h3>Support beyond search</h3>
+                <p>The team can help with recommendations, booking questions and retreat promotion.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cream">
+          <div class="section-inner">
+            <div class="two-column-copy">
+              <article class="copy-block">
+                <h3>Global selection, curated for retreat leaders.</h3>
+                <p>Browse retreat venues in established destinations like Bali, Costa Rica and Thailand, plus hidden gems across Europe, South America and beyond. Whether the retreat is intimate or built for a large group, the catalog is structured for discovery.</p>
+              </article>
+              <article class="copy-block">
+                <h3>Support throughout the journey.</h3>
+                <p>Finding the venue is only the beginning. RetreatVenues can support availability checks, owner communication, booking questions and personalized recommendations when the ideal space is not obvious yet.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cream">
+          <div class="section-inner">
+            <div class="owner-cta">
+              <div class="owner-copy">
+                <div class="section-kicker">For venue owners</div>
+                <h2>Bring more retreat organizers to your venue.</h2>
+                <p>List your venue once, keep your booking revenue, and receive direct inquiries from organizers looking for spaces like yours.</p>
+                <div class="owner-actions">
+                  <a class="rv-button secondary" href="#">List your venue</a>
+                  <a class="rv-button" href="#">See pricing</a>
+                </div>
+              </div>
+              <div class="cta-image">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/02/dharmashala12-400x314.jpg" alt="Retreat venue interior" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section white">
+          <div class="section-inner">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">Questions</div>
+                <h2>Answers before visitors start searching.</h2>
+              </div>
+            </div>
+            <div class="faq-grid">
+              <article class="faq-card">
+                <h3>Do organizers book through RetreatVenues?</h3>
+                <p>No. They send an inquiry and continue directly with the venue, so there is no marketplace booking commission.</p>
+              </article>
+              <article class="faq-card">
+                <h3>Can I search by group size?</h3>
+                <p>Yes. Capacity is one of the core search needs for retreat planning.</p>
+              </article>
+              <article class="faq-card">
+                <h3>Are venues worldwide?</h3>
+                <p>The catalog includes retreat centers, hotels and villas across 50+ countries.</p>
+              </article>
+              <article class="faq-card">
+                <h3>Can venues be added by owners?</h3>
+                <p>Venue owners can choose a listing plan and submit their details to be published.</p>
+              </article>
+              <article class="faq-card">
+                <h3>How far in advance should I book?</h3>
+                <p>Plan at least 6 months ahead when possible, and closer to 12 months for popular venues or high season dates.</p>
+              </article>
+              <article class="faq-card">
+                <h3>What should I ask before confirming?</h3>
+                <p>Ask about deposit terms, cancellation policy, food, room setup, WiFi, AV, airport access and hidden fees.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

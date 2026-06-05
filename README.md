@@ -1,12 +1,14 @@
-# RetreatVenues - List Your Venue Redesign
+# RetreatVenues - Redesign Mockups
 
-Static redesign mockup for the `List Your Venue` page on RetreatVenues.
+Static redesign mockups for RetreatVenues pages.
 
 ## Files
 
-- `index.html` - standalone HTML mockup of the redesigned page.
+- `index.html` - standalone HTML mockup of the redesigned `List Your Venue` page.
+- `home-redesign-v1.html` - standalone HTML mockup of the redesigned homepage.
 - `assets/Pool.png` - hero image used in the mockup.
 - `docs/client-preview.pdf` - PDF preview without the website menu/header for client review.
+- `docs/home-elementor-plan.md` - section-by-section Elementor build plan for the homepage.
 - `snippets/stats-counter.html` - optional Elementor HTML snippet for animated stats.
 
 ## Design Direction
