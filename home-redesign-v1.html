@@ -535,6 +535,14 @@
         box-shadow: var(--rv-shadow);
       }
 
+      .photo-band.reverse {
+        grid-template-columns: 0.95fr 1.05fr;
+      }
+
+      .photo-band.reverse .photo-band-media {
+        order: -1;
+      }
+
       .photo-band-copy {
         padding: 52px;
       }
@@ -615,6 +623,65 @@
         font-weight: 850;
       }
 
+      .type-showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .type-showcase-card {
+        position: relative;
+        min-height: 260px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--rv-ink);
+        color: #fff;
+        box-shadow: 0 16px 42px rgba(47, 41, 44, 0.08);
+      }
+
+      .type-showcase-card img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+      }
+
+      .type-showcase-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(47, 41, 44, 0.08), rgba(47, 41, 44, 0.78));
+      }
+
+      .type-showcase-card:hover img {
+        transform: scale(1.04);
+      }
+
+      .type-showcase-content {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+        z-index: 1;
+      }
+
+      .type-showcase-content strong {
+        display: block;
+        font-size: 24px;
+        line-height: 1.08;
+        font-weight: 850;
+      }
+
+      .type-showcase-content span {
+        display: inline-flex;
+        margin-top: 10px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
       .benefit-grid {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -683,8 +750,7 @@
       }
 
       .venue-image img,
-      .destination-card img,
-      .cta-image img {
+      .destination-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -817,7 +883,7 @@
 
       .steps-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 18px;
       }
 
@@ -1057,49 +1123,6 @@
         font-weight: 550;
       }
 
-      .owner-cta {
-        display: grid;
-        grid-template-columns: 1fr 0.9fr;
-        gap: 0;
-        border-radius: 8px;
-        overflow: hidden;
-        background: var(--rv-violet);
-        color: #fff;
-        box-shadow: var(--rv-shadow);
-      }
-
-      .owner-copy {
-        padding: 54px;
-      }
-
-      .owner-copy h2 {
-        color: #fff;
-        font-size: 44px;
-      }
-
-      .owner-copy p {
-        max-width: 560px;
-        margin-top: 18px;
-        color: rgba(255, 255, 255, 0.78);
-        font-size: 17px;
-        font-weight: 550;
-      }
-
-      .owner-actions {
-        margin-top: 28px;
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      .owner-actions .rv-button.secondary {
-        border-color: rgba(255, 255, 255, 0.6);
-      }
-
-      .cta-image {
-        min-height: 420px;
-      }
-
       .faq-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1179,13 +1202,16 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .map-split,
-        .owner-cta {
+        .map-split {
           grid-template-columns: 1fr;
         }
 
         .compact-types {
           grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .type-showcase-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .map-panel.light {
@@ -1282,8 +1308,7 @@
           display: block;
         }
 
-        .section h2,
-        .owner-copy h2 {
+        .section h2 {
           font-size: 34px;
         }
 
@@ -1301,7 +1326,8 @@
         .features-grid,
         .faq-grid,
         .country-list,
-        .compact-types {
+        .compact-types,
+        .type-showcase-grid {
           grid-template-columns: 1fr;
         }
 
@@ -1324,13 +1350,6 @@
           padding: 28px 22px;
         }
 
-        .owner-copy {
-          padding: 34px 24px;
-        }
-
-        .cta-image {
-          min-height: 300px;
-        }
       }
     </style>
   </head>
@@ -1360,9 +1379,9 @@
           <img class="hero-media" src="https://retreatvenues.com/wp-content/uploads/2026/02/Pool.png" alt="Retreat venue with swimming pool" />
           <div class="hero-inner">
             <div class="hero-copy">
-              <div class="eyebrow">Free for retreat organizers</div>
-              <h1>Find the perfect retreat venue, without booking fees.</h1>
-              <p class="hero-lede">Browse retreat centers, villas and hotels worldwide. Compare spaces, check availability and contact venues directly.</p>
+              <div class="eyebrow">Free to search</div>
+              <h1>Find the perfect venue for a retreat, trip or group stay.</h1>
+              <p class="hero-lede">Browse retreat centers, villas and hotels worldwide. Compare spaces, check availability and contact venues directly, whether you are planning a retreat, a holiday or a group getaway.</p>
             </div>
 
             <form class="search-card" action="#">
@@ -1371,8 +1390,8 @@
                 <span class="search-value">Choose a country or region</span>
               </label>
               <label class="search-field">
-                <span class="search-label">Retreat type</span>
-                <span class="search-value">Yoga, wellness, corporate</span>
+                <span class="search-label">Stay type</span>
+                <span class="search-value">Retreat, holiday, workshop</span>
               </label>
               <label class="search-field">
                 <span class="search-label">Guests</span>
@@ -1382,7 +1401,7 @@
             </form>
 
             <div class="hero-links">
-              <span>Free for organizers</span>
+              <span>Free to search</span>
               <a href="https://retreatvenues.com/search-by-country/">Browse all destinations</a>
               <a href="https://retreatvenues.com/featured/">See favorite venues</a>
             </div>
@@ -1393,7 +1412,7 @@
           <div class="stats-inner">
             <div class="stat">
               <strong>Free</strong>
-              <span>for retreat organizers</span>
+              <span>to search and contact venues</span>
             </div>
             <div class="stat">
               <strong>300+</strong>
@@ -1454,7 +1473,7 @@
             <div class="section-head">
               <div>
                 <div class="section-kicker">Favorite venues</div>
-                <h2>Explore retreat spaces organizers already love.</h2>
+                <h2>Explore retreat spaces people already love.</h2>
               </div>
               <p class="section-intro">Start with inspiring venues, then open the full listing when a space feels right for the retreat.</p>
             </div>
@@ -1519,8 +1538,8 @@
           <div class="section-inner">
             <div class="center-head">
               <div class="section-kicker">How it works</div>
-              <h2>Find a venue in three simple steps.</h2>
-              <p class="section-intro">Search, check availability, then send your inquiry directly to the venue.</p>
+              <h2>Find a venue in four simple steps.</h2>
+              <p class="section-intro">Search, compare details, contact the venue directly and avoid platform commission.</p>
             </div>
 
             <div class="steps-grid">
@@ -1551,6 +1570,15 @@
                 <h3>Send an inquiry</h3>
                 <p>Contact the venue directly and continue the conversation without platform commission.</p>
               </article>
+              <article class="step-card visual-step">
+                <div class="step-number">
+                  <span class="step-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 6v12M15.5 8.5c-.7-.9-1.8-1.4-3.1-1.4-1.8 0-3.1.9-3.1 2.2 0 3.3 6.4 1.6 6.4 5.3 0 1.5-1.4 2.4-3.4 2.4-1.5 0-2.8-.6-3.6-1.7"></path></svg>
+                  </span>
+                </div>
+                <h3>No commission</h3>
+                <p>Search for free, send inquiries for free, and book directly with the venue.</p>
+              </article>
             </div>
           </div>
         </section>
@@ -1559,9 +1587,9 @@
           <div class="section-inner">
             <div class="photo-band">
               <div class="photo-band-copy">
-                <div class="section-kicker">Free for organizers</div>
+                <div class="section-kicker">Free to search</div>
                 <h2>No booking fee. No commission. Direct contact.</h2>
-                <p>RetreatVenues is free for organizers searching for a venue. Your inquiry goes directly to the venue, so you can discuss dates, meals, rooms and logistics without a middleman.</p>
+                <p>RetreatVenues is free for people searching for a venue. Your inquiry goes directly to the venue, so you can discuss dates, meals, rooms and logistics without a middleman.</p>
                 <div style="margin-top: 28px;">
                   <a class="rv-button secondary" href="https://retreatvenues.com/find/">Start searching</a>
                 </div>
@@ -1581,24 +1609,42 @@
               <p class="section-intro">Start broad, then narrow by capacity, destination and facilities.</p>
             </div>
 
-            <div class="compact-types">
-              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Retreat Centers</strong><span>Browse</span></a>
-              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Villas</strong><span>Browse</span></a>
-              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Hotels</strong><span>Browse</span></a>
-              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Eco Resorts</strong><span>Browse</span></a>
-              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Camps</strong><span>Browse</span></a>
-              <a class="compact-type" href="https://retreatvenues.com/find/"><strong>Houses</strong><span>Browse</span></a>
+            <div class="type-showcase-grid">
+              <a class="type-showcase-card" href="https://retreatvenues.com/listings/retreat-center/">
+                <img src="https://retreatvenues.com/wp-content/uploads/2026/02/Pool.png" alt="Retreat center with swimming pool" />
+                <span class="type-showcase-content"><strong>Retreat Centers</strong><span>Browse retreat centers</span></span>
+              </a>
+              <a class="type-showcase-card" href="https://retreatvenues.com/listings/villa/">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/04/villa.png" alt="Private villa venue" />
+                <span class="type-showcase-content"><strong>Villas</strong><span>Browse villas</span></span>
+              </a>
+              <a class="type-showcase-card" href="https://retreatvenues.com/listings/hotel/">
+                <img src="https://retreatvenues.com/wp-content/uploads/2024/11/HOTEL.jpg" alt="Hotel venue for groups" />
+                <span class="type-showcase-content"><strong>Hotels</strong><span>Browse hotels</span></span>
+              </a>
+              <a class="type-showcase-card" href="https://retreatvenues.com/listings/eco-resort/">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/05/Blue-Osa-Yoga-retreat-in-Costa-Rica-seats-bythe-beach-under-an-umbrela-400x314.jpg" alt="Eco resort by the beach" />
+                <span class="type-showcase-content"><strong>Eco Resorts</strong><span>Browse eco resorts</span></span>
+              </a>
+              <a class="type-showcase-card" href="https://retreatvenues.com/listings/camp/">
+                <img src="https://retreatvenues.com/wp-content/uploads/2025/06/elverde10-400x314.jpeg" alt="Nature camp venue" />
+                <span class="type-showcase-content"><strong>Camps</strong><span>Browse camps</span></span>
+              </a>
+              <a class="type-showcase-card" href="https://retreatvenues.com/listings/house/">
+                <img src="https://retreatvenues.com/wp-content/uploads/2026/01/piscine-1-400x314.webp" alt="House venue with pool" />
+                <span class="type-showcase-content"><strong>Houses</strong><span>Browse houses</span></span>
+              </a>
             </div>
           </div>
         </section>
 
         <section class="section beige">
           <div class="section-inner">
-            <div class="photo-band">
+            <div class="photo-band reverse">
               <div class="photo-band-copy">
                 <div class="section-kicker">Before you choose</div>
                 <h2>A better shortlist starts with the right questions.</h2>
-                <p>Beautiful photos help, but a retreat venue also needs to work for the group, the schedule and the budget.</p>
+                <p>Beautiful photos help, but the venue also needs to work for the group, the schedule and the budget.</p>
                 <ul class="guide-list">
                   <li>Group size, rooms, bathrooms and retreat room setup.</li>
                   <li>Meals, dietary needs and kitchen flexibility.</li>
@@ -1616,13 +1662,14 @@
         <section class="section white">
           <div class="section-inner">
             <div class="center-head">
-              <div class="section-kicker">Questions</div>
-              <h2>Before you send an inquiry.</h2>
+              <div class="section-kicker">FAQ</div>
+              <h2>Frequently asked questions.</h2>
+              <p>Quick answers before you contact a venue or build your shortlist.</p>
             </div>
             <div class="faq-grid">
               <article class="faq-card">
-                <h3>Is RetreatVenues free for organizers?</h3>
-                <p>Yes. Organizers can search venues and send inquiries without a booking fee or commission.</p>
+                <h3>Is RetreatVenues free to use?</h3>
+                <p>Yes. You can search venues and send inquiries without a booking fee or commission.</p>
               </article>
               <article class="faq-card">
                 <h3>Do I book directly with the venue?</h3>
@@ -1642,7 +1689,7 @@
               </article>
               <article class="faq-card">
                 <h3>Can RetreatVenues help me find options?</h3>
-                <p>Yes. The team can help you build a shortlist based on your destination, group size and retreat needs.</p>
+                <p>Yes. The team can help you build a shortlist based on your destination, group size and stay needs.</p>
               </article>
             </div>
           </div>
