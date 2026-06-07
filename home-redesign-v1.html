@@ -496,6 +496,12 @@
         background: rgba(112, 84, 99, 0.14);
       }
 
+      .map-feature-panel {
+        display: block;
+        min-height: 620px;
+        box-shadow: 0 24px 70px rgba(47, 41, 44, 0.12);
+      }
+
       .map-label {
         position: absolute;
         left: 24px;
@@ -1217,6 +1223,7 @@
         .map-panel.light {
           min-height: 420px;
         }
+
       }
 
       @media (max-width: 767px) {
@@ -1431,40 +1438,25 @@
 
         <section class="section cream">
           <div class="section-inner">
-            <div class="search-destination-layout">
-              <div class="destination-panel">
-                <div class="section-kicker">Start your search</div>
-                <h2>Choose a destination, then find the right venue.</h2>
-                <p>Search by country, explore the map, or start with the most popular retreat destinations.</p>
-
-                <div class="country-list">
-                  <a class="country-link" href="https://retreatvenues.com/france/">France <span>View venues</span></a>
-                  <a class="country-link" href="https://retreatvenues.com/costa-rica/">Costa Rica <span>View venues</span></a>
-                  <a class="country-link" href="https://retreatvenues.com/spain">Spain <span>View venues</span></a>
-                  <a class="country-link" href="https://retreatvenues.com/bali/">Bali <span>View venues</span></a>
-                  <a class="country-link" href="https://retreatvenues.com/thailand/">Thailand <span>View venues</span></a>
-                  <a class="country-link" href="https://retreatvenues.com/greece/">Greece <span>View venues</span></a>
-                </div>
-
-                <div style="margin-top: 28px;">
-                  <a class="rv-button" href="https://retreatvenues.com/search-by-country/">Browse all countries</a>
-                </div>
-              </div>
-
-              <a class="map-panel light" href="https://retreatvenues.com/find/" aria-label="Explore venues on the map">
-                <div class="map-line one"></div>
-                <div class="map-line two"></div>
-                <div class="pin a">12</div>
-                <div class="pin b">30</div>
-                <div class="pin c">7</div>
-                <div class="pin d">18</div>
-                <div class="pin e">4</div>
-                <div class="map-label">
-                  <strong>Explore venues on the map</strong>
-                  <span>See retreat spaces by region, destination and group size.</span>
-                </div>
-              </a>
+            <div class="center-head">
+              <div class="section-kicker">Start your search</div>
+              <h2>Choose a destination, then find the right venue.</h2>
+              <p class="section-intro">Explore the map and open the full search when you are ready to compare venues.</p>
             </div>
+
+            <a class="map-panel light map-feature-panel" href="https://retreatvenues.com/find/" aria-label="Explore venues on the map">
+              <div class="map-line one"></div>
+              <div class="map-line two"></div>
+              <div class="pin a">12</div>
+              <div class="pin b">30</div>
+              <div class="pin c">7</div>
+              <div class="pin d">18</div>
+              <div class="pin e">4</div>
+              <div class="map-label">
+                <strong>Explore venues on the map</strong>
+                <span>Browse retreat spaces by region, destination and group size.</span>
+              </div>
+            </a>
           </div>
         </section>
 
